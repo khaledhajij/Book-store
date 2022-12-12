@@ -1,4 +1,4 @@
-import React, { createContext, useEffect } from "react";
+import { useEffect } from "react";
 import axios from "axios";
 import { useState } from "react";
 
@@ -9,7 +9,7 @@ const FetchData = (methods, url) => {
       .get(url)
       .then((res) => setData(res.data))
       .catch((err) => console.log(err));
-  }, [methods.search]);
+  }, [methods.search,url]);
   return { data, setData };
 };
 export default FetchData;

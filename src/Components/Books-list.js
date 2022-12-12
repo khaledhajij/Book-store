@@ -1,6 +1,5 @@
 import React from "react";
 import Book from "./Reusable/Book";
-import FetchData from "./FetchData";
 
 const BooksList = (props) => {
   const books = props.booksData;
@@ -23,13 +22,11 @@ const BooksList = (props) => {
           alt=""
         />
         <div className="intro">
-          <i>
             <h2>{"Do Not Stop Reading".toUpperCase()}</h2>
-          </i>
         </div>
       </div>
       <div>{props.children}</div>
-      <ul className="BooksList">{items.length ? booksRenderd : "Loading"}</ul>
+      <ul className="BooksList">{items.length ? booksRenderd : "No books"}</ul>
     </div>
   );
 };

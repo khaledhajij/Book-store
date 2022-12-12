@@ -1,15 +1,7 @@
-import { Dropdown } from "bootstrap";
 import React from "react";
-import { genres } from "./data";
 import DropDown from "./Reusable/DropDown";
 
 const Genres = ({ data, title, methods, setmethods, booksData, setData }) => {
-  const renderedData = data.map((genre) => (
-    <li>
-      {/* <span className="material-symbols-outlined">{icon}</span> */}
-      {genre.slice(0, 1).toUpperCase() + genre.slice(1)}
-    </li>
-  ));
   const handleGenre = (value, title) => {
     setmethods({
       ...methods,
@@ -22,30 +14,32 @@ const Genres = ({ data, title, methods, setmethods, booksData, setData }) => {
     <div className="Genres">
       <div className="myContainer">
         <div className="search-bar">
-          <DropDown
-            arr={data}
-            booksData={booksData}
-            setData={setData}
-            handleGenre={handleGenre}
-            name="genre"
-            value={methods.name}
-          />
-          <DropDown
-            arr={["Author", "Book name"]}
-            booksData={booksData}
-            setData={setData}
-            name="Search by"
-            handleGenre={handleGenre}
-            value={methods.name}
-          />
-          <DropDown
-            arr={["Price", "Alphabetical", "Number of pages", "Rating"]}
-            booksData={booksData}
-            handleGenre={handleGenre}
-            name="Sort"
-            setData={setData}
-            value={methods.name}
-          />
+          <div className="dropdowns">
+            <DropDown
+              arr={data}
+              booksData={booksData}
+              setData={setData}
+              handleGenre={handleGenre}
+              name="genre"
+              value={methods.name}
+            />
+            <DropDown
+              arr={["Author", "Book name"]}
+              booksData={booksData}
+              setData={setData}
+              name="Search by"
+              handleGenre={handleGenre}
+              value={methods.name}
+            />
+            <DropDown
+              arr={["Price", "Alphabetical", "Number of pages", "Rating"]}
+              booksData={booksData}
+              handleGenre={handleGenre}
+              name="Sort"
+              setData={setData}
+              value={methods.name}
+            />
+          </div>
           {methods["Search by"] === "Book name" ? (
             <input
               type="search"

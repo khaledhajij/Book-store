@@ -1,16 +1,12 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useEffect, useState } from "react";
 import {
-  faBars,
-  faMoon,
-  faSearch,
-  faSun,
+  faBars
 } from "@fortawesome/free-solid-svg-icons";
 
 const Navbar = ({ input, setInput }) => {
-  const windowWidth = window.innerWidth > 1000;
   const [showNav, setShowNav] = useState(true);
-  const [showList, setShowList] = useState(windowWidth ? true : false);
+  // const [showList, setShowList] = useState(windowWidth ? true : false);
   useEffect(() => {
     window.onscroll = function (e) {
       if (this.oldScroll > this.scrollY) {
@@ -33,9 +29,9 @@ const Navbar = ({ input, setInput }) => {
         </p>
         <FontAwesomeIcon
           icon={faBars}
-          onClick={() => {
-            setShowList((prevalue) => !prevalue);
-          }}
+          // onClick={() => {
+          //   setShowList((prevalue) => !prevalue);
+          // }}
         />
         <div className="profile">
           <span class="material-symbols-outlined">shopping_cart</span>
