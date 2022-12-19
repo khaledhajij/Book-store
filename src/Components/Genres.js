@@ -9,7 +9,6 @@ const Genres = ({ data, title, methods, setmethods, booksData, setData }) => {
       search: title === "Search by" ? "" : methods.search,
     });
   };
-  const categories = ['Fiction','Cooking']
   return (
     <div className="Genres">
       <div className="myContainer">
