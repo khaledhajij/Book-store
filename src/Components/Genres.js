@@ -8,8 +8,8 @@ const Genres = ({ data, title, methods, setmethods, booksData, setData }) => {
       [title]: value,
       search: title === "Search by" ? "" : methods.search,
     });
-    console.log(value, title);
   };
+  const categories = ['Fiction','Cooking']
   return (
     <div className="Genres">
       <div className="myContainer">

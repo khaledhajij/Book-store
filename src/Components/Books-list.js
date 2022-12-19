@@ -12,7 +12,7 @@ const BooksList = (props) => {
           )
         : book
     )
-    .map((book) => <Book {...book} />);
+    .map((book) => <Book key={book.id} {...book} />);
   console.log();
   return (
     <div className="main">

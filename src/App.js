@@ -5,6 +5,8 @@ import "./Styles/styles.css";
 import Genres from "./Components/Genres";
 import FetchData from "./Components/FetchData";
 import BooksList from "./Components/Books-list";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import BookDetails from "./Components/BookDetails";
 
 function App() {
   const [methods, setmethods] = useState({
@@ -24,28 +26,33 @@ function App() {
         .filter((item) => item.volumeInfo.categories?.length)
         .map((item) => item.volumeInfo.categories[0])
   );
-
-  console.log([...genres]);
-
   return (
-    <div className="App">
+    <BrowserRouter>
       <Navbar methods={methods} setmethods={setmethods} />
-      <BooksList
+
+      <Genres
+        title="GENRES"
+        data={[...genres]}
         methods={methods}
         setmethods={setmethods}
         booksData={data}
         setData={setData}
-      >
-        <Genres
-          title="GENRES"
-          data={[...genres]}
-          methods={methods}
-          setmethods={setmethods}
-          booksData={data}
-          setData={setData}
+      />
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <BooksList
+              methods={methods}
+              setmethods={setmethods}
+              booksData={data}
+              setData={setData}
+            />
+          }
         />
-      </BooksList>
-    </div>
+        <Route path="/:id" element={<BookDetails booksData={data} />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

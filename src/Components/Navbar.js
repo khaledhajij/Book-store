@@ -34,7 +34,7 @@ const Navbar = ({ input, setInput }) => {
           // }}
         />
         <div className="profile">
-          <span class="material-symbols-outlined">shopping_cart</span>
+          <span className="material-symbols-outlined">shopping_cart</span>
         </div>
       </div>
     </div>

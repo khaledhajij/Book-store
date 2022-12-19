@@ -5,7 +5,7 @@ import DropdownButton from "react-bootstrap/DropdownButton";
 const DropDown = ({ name, arr, booksData, setData, handleGenre }) => {
   const myArr = arr || [];
   const renderedList = myArr.map((ele) => (
-    <Dropdown.Item onClick={() => handleGenre(ele,name)}>
+    <Dropdown.Item key={ele} onClick={() => handleGenre(ele,name)}>
       {ele}
     </Dropdown.Item>
   ));
